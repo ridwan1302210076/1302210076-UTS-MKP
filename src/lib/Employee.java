@@ -14,6 +14,7 @@ public class Employee {
 
     private LocalDate joiningDate;
     private boolean isForeigner;
+	//pemisahan gender karyawan
     public enum Gender {
         PRIA,
         WANITA
@@ -51,7 +52,8 @@ public class Employee {
         childIdNumbers = new LinkedList<>();
     }
 
-    public void setMonthlySalary(Grade grade) { // Perbaikan: Ubah parameter menjadi Grade
+	//mengatur gaji berdasarkan grade
+    public void setMonthlySalary(Grade grade) { 
         switch (grade) {
             case GRADE_1:
                 monthlySalary = 3000000;
@@ -94,10 +96,10 @@ public class Employee {
 
     private int calculateMonthsWorked() {
         LocalDate currentDate = LocalDate.now();
-        int monthsWorked = 12; // Default to a full year
+        int monthsWorked = 12; 
         if (currentDate.getYear() == joiningDate.getYear()) {
             monthsWorked = currentDate.getMonthValue() - joiningDate.getMonthValue();
         }
-        return Math.max(0, monthsWorked); // Ensure non-negative value
+        return Math.max(0, monthsWorked); 
     }
 }
